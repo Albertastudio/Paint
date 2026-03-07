@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Nordic Build Claresholm</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Filter bar */
+    .filter-bar {
+      display: flex; gap: 10px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 52px;
+    }
+    .filter-btn {
+      background: transparent; color: var(--navy);
+      border: 2px solid var(--navy);
+      padding: 9px 24px; border-radius: 24px;
+      font-size: 14px; font-family: 'Cormorant Garamond', serif;
+      cursor: pointer; transition: all 0.2s; font-size: 16px;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--navy); color: white;
+    }
+
+    /* Portfolio grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
+    }
+    .portfolio-card {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.35s cubic-bezier(.25,.8,.25,1), box-shadow 0.35s;
+      cursor: pointer;
+    }
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 48px rgba(30,58,138,0.16);
+    }
+    .portfolio-card:hover .card-img-inner {
+      transform: scale(1.06);
+    }
+    .card-img {
+      height: 220px; overflow: hidden; position: relative;
+    }
+    .card-img-inner {
+      width: 100%; height: 100%;
+      transition: transform 0.5s ease;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card-img-label {
+      color: rgba(255,255,255,0.88); font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 400; text-align: center; padding: 0 20px;
+      position: relative; z-index: 1;
+    }
+    .card-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.25));
+    }
+    .card-body { padding: 22px 24px 26px; background: white; }
+    .card-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 10px;
+    }
+    .card-tag {
+      background: var(--accent); color: var(--navy);
+      font-size: 12px; padding: 4px 14px; border-radius: 20px;
+      font-family: 'Jost', sans-serif; font-weight: 500;
+    }
+    .card-year { color: #9ca3af; font-size: 12px; }
+    .card-desc { color: var(--gray); font-size: 14px; line-height: 1.65; margin-bottom: 10px; }
+    .card-location { color: #9ca3af; font-size: 13px; }
+
+    /* hidden cards */
+    .portfolio-card.hidden { display: none; }
+
+    @media (max-width: 600px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect x="3" y="12" width="6" height="7" rx="1" fill="#1e3a8a"/>
+          <rect x="11" y="7" width="8" height="12" rx="1" fill="#1e3a8a"/>
+          <rect x="1" y="19" width="20" height="2" rx="1" fill="#1e3a8a"/>
+        </svg>
+      </div>
+      <div>
+        <div class="logo-text-main">NORDIC BUILD</div>
+        <div class="logo-text-sub">Claresholm, Alberta</div>
+      </div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="contact.html">Contact</a>
+      <a href="calculator.html" class="btn-calc">Calculator</a>
+    </nav>
+    <button class="burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="portfolio.html" class="active">Portfolio</a>
+  <a href="contact.html">Contact</a>
+  <a href="calculator.html">Calculator</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-eyebrow">Recent Work</div>
+  <h1>Our Portfolio</h1>
+  <p>A selection of residential and commercial projects across Southern Alberta.</p>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section section-white">
+  <div class="container">
+
+    <!-- Filter -->
+    <div class="filter-bar fade-in">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="exterior">Exterior</button>
+      <button class="filter-btn" data-filter="interior">Interior</button>
+      <button class="filter-btn" data-filter="renovation">Renovation</button>
+      <button class="filter-btn" data-filter="commercial">Commercial</button>
+    </div>
+
+    <!-- Grid -->
+    <div class="portfolio-grid" id="portfolioGrid">
+
+      <div class="portfolio-card fade-in" data-category="exterior" data-delay="0">
+        <div class="card-img">
+          <div class="card-img-inner" style="background:linear-gradient(135deg,#2d4fa0,#1e3a8a);">
+            <div class="card-img-overlay"></div>
+            <div class="card-img-label">Heritage Home Repaint</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-tag">Exterior</span><span class="card-year">2024</span></div>
+          <p class="card-desc">Full exterior repaint of a 1940s heritage home with elastomeric coating system. Included caulking, wood repair, and two-coat prime and finish.</p>
+          <div class="card-location">📍 Claresholm, AB</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card fade-in" data-category="interior" data-delay="0.07">
+        <div class="card-img">
+          <div class="card-img-inner" style="background:linear-gradient(135deg,#3b5cc0,#2d4fa0);">
+            <div class="card-img-overlay"></div>
+            <div class="card-img-label">Modern Interior Refresh</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-tag">Interior</span><span class="card-year">2024</span></div>
+          <p class="card-desc">Complete interior with designer colour palette. Feature walls, two-tone trim, and flat ceiling finish throughout 2,100 sq ft home.</p>
+          <div class="card-location">📍 Nanton, AB</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card fade-in" data-category="commercial" data-delay="0.14">
+        <div class="card-img">
+          <div class="card-img-inner" style="background:linear-gradient(135deg,#1e3a8a,#152c6e);">
+            <div class="card-img-overlay"></div>
+            <div class="card-img-label">Commercial Office Suite</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-tag">Commercial</span><span class="card-year">2023</span></div>
+          <p class="card-desc">3,200 sq ft office space repaint using low-VOC paints. Full project completed over a single weekend to minimize business disruption.</p>
+          <div class="card-location">📍 Lethbridge, AB</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card fade-in" data-category="exterior" data-delay="0">
+        <div class="card-img">
+          <div class="card-img-inner" style="background:linear-gradient(135deg,#152c6e,#0f1f4d);">
+            <div class="card-img-overlay"></div>
+            <div class="card-img-label">Stucco Exterior Restoration</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-tag">Exterior</span><span class="card-year">2023</span></div>
+          <p class="card-desc">Stucco crack repair, full prime, and elastomeric finish for freeze-thaw protection. Surface prep included caulking all penetrations and transitions.</p>
+          <div class="card-location">📍 Fort Macleod, AB</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card fade-in" data-category="renovation" data-delay="0.07">
+        <div class="card-img">
+          <div class="card-img-inner" style="background:linear-gradient(135deg,#4a6fd4,#2d4fa0);">
+            <div class="card-img-overlay"></div>
+            <div class="card-img-label">Kitchen Cabinet Refinish</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-tag">Renovation</span><span class="card-year">2024</span></div>
+          <p class="card-desc">Full cabinet refinish using conversion varnish for factory-quality results. Transformed the kitchen at a fraction of replacement cost.</p>
+          <div class="card-location">📍 Claresholm, AB</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card fade-in" data-category="interior" data-delay="0.14">
+        <div class="card-img">
+          <div class="card-img-inner" style="background:linear-gradient(135deg,#2a4898,#1e3a8a);">
+            <div class="card-img-overlay"></div>
+            <div class="card-img-label">New Build Finishing</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-tag">Interior</span><span class="card-year">2023</span></div>
+          <p class="card-desc">Full interior finish for new construction. Drywall prime, two-coat walls, semi-gloss trim, and painted cabinetry throughout 2,800 sq ft home.</p>
+          <div class="card-location">📍 High River, AB</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card fade-in" data-category="exterior" data-delay="0">
+        <div class="card-img">
+          <div class="card-img-inner" style="background:linear-gradient(135deg,#344fa8,#2d4fa0);">
+            <div class="card-img-overlay"></div>
+            <div class="card-img-label">Deck &amp; Fence Staining</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-tag">Exterior</span><span class="card-year">2024</span></div>
+          <p class="card-desc">1,400 sq ft of deck and 200 linear feet of fence treated with UV-resistant penetrating oil stain. Includes pressure wash, prep, and two coats.</p>
+          <div class="card-location">📍 Claresholm, AB</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card fade-in" data-category="commercial" data-delay="0.07">
+        <div class="card-img">
+          <div class="card-img-inner" style="background:linear-gradient(135deg,#1a3480,#0f1f4d);">
+            <div class="card-img-overlay"></div>
+            <div class="card-img-label">Retail Store Renovation</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-tag">Commercial</span><span class="card-year">2024</span></div>
+          <p class="card-desc">Complete interior repaint with branded accent colours for a local Claresholm retailer. Durable eggshell finish throughout high-traffic areas.</p>
+          <div class="card-location">📍 Claresholm, AB</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card fade-in" data-category="renovation" data-delay="0.14">
+        <div class="card-img">
+          <div class="card-img-inner" style="background:linear-gradient(135deg,#253d8a,#1e3a8a);">
+            <div class="card-img-overlay"></div>
+            <div class="card-img-label">Basement Development</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-tag">Renovation</span><span class="card-year">2023</span></div>
+          <p class="card-desc">Moisture-resistant primer and full paint for a new basement development. Included popcorn ceiling removal on upper floor and complete re-coat.</p>
+          <div class="card-location">📍 Nanton, AB</div>
+        </div>
+      </div>
+
+    </div><!-- /portfolio-grid -->
+
+    <div style="text-align:center; margin-top:56px;" class="fade-in">
+      <p style="color:var(--gray); margin-bottom:24px;">Want to see your home transformed?</p>
+      <a href="calculator.html" class="btn btn-primary">Get Your Free Estimate</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">NORDIC BUILD</div>
+        <div class="footer-brand-sub">Claresholm, Alberta</div>
+        <p class="footer-desc">Professional painting and renovation services for Southern Alberta homes and businesses.</p>
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="fb-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Follow Us on Facebook
+        </a>
+      </div>
+      <div>
+        <div class="footer-heading">Pages</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="contact.html">Contact</a>
+          <a href="calculator.html">Calculator</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <div class="footer-contact-item"><span>📍</span><span>Claresholm, AB T0L 0T0</span></div>
+        <div class="footer-contact-item"><span>📞</span><span>(403) 555-0192</span></div>
+        <div class="footer-contact-item"><span>✉️</span><span>info@nordicbuild.ca</span></div>
+        <div class="footer-contact-item"><span>🕐</span><span>Mon–Fri 7am–6pm, Sat 8am–4pm</span></div>
+        <div class="footer-contact-item"><span>🛡️</span><span>WCB Covered · $5M Liability</span></div>
+      </div>
+      <div>
+        <div class="footer-heading">Service Area</div>
+        <div class="footer-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39527.56!2d-113.6344!3d50.0222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537264a1c6c7a679%3A0x54ecbabd46a7c4b7!2sClaresholm%2C+AB!5e0!3m2!1sen!2sca!4v1620000000000" width="100%" height="160" style="border:0; display:block;" allowfullscreen loading="lazy" title="Map"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Nordic Build. All rights reserved. Claresholm, Alberta, Canada.</span>
+      <span>Licensed · WCB Covered · $5M Liability Insurance</span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  // Portfolio filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.portfolio-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

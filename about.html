@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Nordic Build Claresholm</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+    }
+    .story-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px; color: var(--navy);
+      font-weight: 400; margin-bottom: 24px;
+    }
+    .story-text p {
+      color: var(--gray); line-height: 1.8; font-size: 16px; margin-bottom: 18px;
+    }
+    .stats-card {
+      background: var(--gray-light); border-radius: 16px;
+      padding: 44px 40px; border: 1px solid var(--accent);
+    }
+    .stats-card-item { margin-bottom: 32px; }
+    .stats-card-item:last-child { margin-bottom: 0; }
+    .stats-card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px; font-weight: 700; color: var(--navy); line-height: 1;
+    }
+    .stats-card-label { color: var(--gray); font-size: 15px; margin-top: 4px; }
+
+    .values-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .value-card {
+      background: white; border-radius: 14px; padding: 36px 28px;
+      border: 1px solid var(--accent); text-align: center;
+    }
+    .value-bar {
+      width: 44px; height: 4px; background: var(--navy);
+      border-radius: 2px; margin: 0 auto 20px;
+    }
+    .value-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; color: var(--navy); margin-bottom: 12px;
+    }
+    .value-text { color: var(--gray); font-size: 15px; line-height: 1.7; }
+
+    .team-section { border-top: 2px solid var(--accent); padding-top: 64px; margin-top: 64px; }
+    .team-block {
+      background: var(--gray-light); border-radius: 16px;
+      padding: 48px; border-left: 5px solid var(--navy);
+    }
+    .team-block p { color: var(--gray); line-height: 1.8; font-size: 16px; }
+
+    .badge-row {
+      display: flex; flex-wrap: wrap; gap: 16px; margin-top: 36px;
+    }
+    .badge {
+      display: flex; align-items: center; gap: 10px;
+      background: white; border: 2px solid var(--accent);
+      padding: 12px 20px; border-radius: 10px;
+      font-size: 14px; color: var(--navy); font-weight: 500;
+    }
+
+    @media (max-width: 800px) {
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect x="3" y="12" width="6" height="7" rx="1" fill="#1e3a8a"/>
+          <rect x="11" y="7" width="8" height="12" rx="1" fill="#1e3a8a"/>
+          <rect x="1" y="19" width="20" height="2" rx="1" fill="#1e3a8a"/>
+        </svg>
+      </div>
+      <div>
+        <div class="logo-text-main">NORDIC BUILD</div>
+        <div class="logo-text-sub">Claresholm, Alberta</div>
+      </div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+      <a href="calculator.html" class="btn-calc">Calculator</a>
+    </nav>
+    <button class="burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html" class="active">About</a>
+  <a href="services.html">Services</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+  <a href="calculator.html">Calculator</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-eyebrow">Our Story</div>
+  <h1>A Claresholm Company,<br>Through &amp; Through</h1>
+  <p>Rooted in Southern Alberta. Trusted by neighbours. Committed to craftsmanship.</p>
+</section>
+
+<!-- STORY -->
+<section class="section section-white">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-text fade-in">
+        <h2>Founded in Claresholm</h2>
+        <p>Nordic Build was founded over a decade ago by a local craftsman who believed that Southern Alberta homeowners deserved more than just a coat of paint — they deserved a lasting investment in their property.</p>
+        <p>We've grown from a one-man operation to a trusted team of skilled painters and renovation specialists, but our roots — and our commitment — remain firmly in Claresholm and the surrounding communities of Nanton, Fort Macleod, and Lethbridge County.</p>
+        <p>Every project we take on is backed by full WCB coverage and $5M liability insurance, because protecting our clients and our crew is non-negotiable.</p>
+        <div class="badge-row">
+          <div class="badge"><span>🛡️</span> WCB Registered</div>
+          <div class="badge"><span>✅</span> $5M Liability Insurance</div>
+          <div class="badge"><span>🏅</span> Licensed Alberta Contractor</div>
+        </div>
+      </div>
+      <div class="stats-card fade-in" data-delay="0.2">
+        <div class="stats-card-item">
+          <div class="stats-card-num">12+</div>
+          <div class="stats-card-label">Years serving Southern Alberta</div>
+        </div>
+        <div class="stats-card-item">
+          <div class="stats-card-num">400+</div>
+          <div class="stats-card-label">Residential &amp; commercial projects</div>
+        </div>
+        <div class="stats-card-item">
+          <div class="stats-card-num">$5M</div>
+          <div class="stats-card-label">Liability insurance coverage</div>
+        </div>
+        <div class="stats-card-item">
+          <div class="stats-card-num">5★</div>
+          <div class="stats-card-label">Average client rating</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team -->
+    <div class="team-section fade-in">
+      <h2 class="section-title" style="margin-bottom:28px;">Our Approach</h2>
+      <div class="team-block">
+        <p>We don't believe in shortcuts. Before a single brush touches your walls, we invest time in thorough preparation — filling cracks, sanding surfaces, applying appropriate primers, and protecting your belongings and surroundings. This preparation work is what separates a paint job that lasts two years from one that lasts twelve.</p>
+        <p style="margin-top:16px;">Our team works closely with each homeowner to understand their vision, timeline, and budget. We communicate openly throughout the project and leave every job site clean and tidy. Our goal is for the experience to be as smooth and stress-free as the finished surface.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section section-gray">
+  <div class="container">
+    <div class="fade-in" style="text-align:center; margin-bottom:56px;">
+      <div class="section-label">What We Stand For</div>
+      <h2 class="section-title">Our Values</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card fade-in" data-delay="0">
+        <div class="value-bar"></div>
+        <div class="value-title">Integrity</div>
+        <p class="value-text">Transparent pricing, honest timelines, no hidden fees. You'll always know exactly what you're getting and what it costs.</p>
+      </div>
+      <div class="value-card fade-in" data-delay="0.1">
+        <div class="value-bar"></div>
+        <div class="value-title">Quality</div>
+        <p class="value-text">Premium materials and meticulous preparation on every single project, regardless of size or budget.</p>
+      </div>
+      <div class="value-card fade-in" data-delay="0.2">
+        <div class="value-bar"></div>
+        <div class="value-title">Community</div>
+        <p class="value-text">Proudly local — we live and work here. Supporting Claresholm means investing in the same community we call home.</p>
+      </div>
+      <div class="value-card fade-in" data-delay="0.3">
+        <div class="value-bar"></div>
+        <div class="value-title">Reliability</div>
+        <p class="value-text">We show up on time, communicate clearly, and finish what we start. Every time, without exception.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="fade-in">
+      <h2>Let's Work Together</h2>
+      <p>Ready to discuss your project? Contact us for a free on-site consultation, or use our online calculator to get an instant estimate.</p>
+      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a href="calculator.html" class="btn btn-white">Get Free Estimate</a>
+        <a href="contact.html" class="btn btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">NORDIC BUILD</div>
+        <div class="footer-brand-sub">Claresholm, Alberta</div>
+        <p class="footer-desc">Professional painting and renovation services for Southern Alberta homes and businesses.</p>
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="fb-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Follow Us on Facebook
+        </a>
+      </div>
+      <div>
+        <div class="footer-heading">Pages</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="contact.html">Contact</a>
+          <a href="calculator.html">Calculator</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <div class="footer-contact-item"><span>📍</span><span>Claresholm, AB T0L 0T0</span></div>
+        <div class="footer-contact-item"><span>📞</span><span>(403) 555-0192</span></div>
+        <div class="footer-contact-item"><span>✉️</span><span>info@nordicbuild.ca</span></div>
+        <div class="footer-contact-item"><span>🕐</span><span>Mon–Fri 7am–6pm, Sat 8am–4pm</span></div>
+        <div class="footer-contact-item"><span>🛡️</span><span>WCB Covered · $5M Liability</span></div>
+      </div>
+      <div>
+        <div class="footer-heading">Service Area</div>
+        <div class="footer-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39527.56!2d-113.6344!3d50.0222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537264a1c6c7a679%3A0x54ecbabd46a7c4b7!2sClaresholm%2C+AB!5e0!3m2!1sen!2sca!4v1620000000000" width="100%" height="160" style="border:0; display:block;" allowfullscreen loading="lazy" title="Map"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Nordic Build. All rights reserved. Claresholm, Alberta, Canada.</span>
+      <span>Licensed · WCB Covered · $5M Liability Insurance</span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Nordic Build Claresholm</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .services-category { margin-bottom: 72px; }
+    .category-header {
+      display: flex; align-items: center; gap: 18px;
+      border-bottom: 2px solid var(--accent); padding-bottom: 22px; margin-bottom: 36px;
+    }
+    .category-icon { font-size: 36px; }
+    .category-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px; color: var(--navy); font-weight: 400;
+    }
+    .service-items {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+    .service-item {
+      padding: 28px 24px; background: var(--gray-light);
+      border-radius: 12px; border-left: 4px solid var(--navy);
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .service-item:hover { box-shadow: 0 6px 24px rgba(30,58,138,0.1); transform: translateX(4px); }
+    .service-item-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px; color: var(--navy); margin-bottom: 10px; font-weight: 600;
+    }
+    .service-item-text { color: var(--gray); font-size: 14px; line-height: 1.7; }
+
+    .process-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0; counter-reset: steps;
+    }
+    .process-step {
+      padding: 36px 28px; position: relative; text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+    .process-step:last-child { border-right: none; }
+    .process-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px; font-weight: 700;
+      color: rgba(255,255,255,0.12); line-height: 1; margin-bottom: 8px;
+    }
+    .process-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; color: white; margin-bottom: 8px;
+    }
+    .process-text { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6; }
+
+    @media (max-width: 700px) {
+      .process-step { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
+      .process-step:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect x="3" y="12" width="6" height="7" rx="1" fill="#1e3a8a"/>
+          <rect x="11" y="7" width="8" height="12" rx="1" fill="#1e3a8a"/>
+          <rect x="1" y="19" width="20" height="2" rx="1" fill="#1e3a8a"/>
+        </svg>
+      </div>
+      <div>
+        <div class="logo-text-main">NORDIC BUILD</div>
+        <div class="logo-text-sub">Claresholm, Alberta</div>
+      </div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+      <a href="calculator.html" class="btn-calc">Calculator</a>
+    </nav>
+    <button class="burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html" class="active">Services</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+  <a href="calculator.html">Calculator</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-eyebrow">What We Offer</div>
+  <h1>Our Services</h1>
+  <p>From a single room to a complete exterior, we bring the same level of care and precision to every project in Southern Alberta.</p>
+</section>
+
+<!-- SERVICES -->
+<section class="section section-white">
+  <div class="container">
+
+    <!-- Exterior -->
+    <div class="services-category fade-in">
+      <div class="category-header">
+        <span class="category-icon">🏡</span>
+        <h2 class="category-title">Exterior Painting</h2>
+      </div>
+      <div class="service-items">
+        <div class="service-item">
+          <div class="service-item-title">Wood Siding &amp; Trim</div>
+          <p class="service-item-text">Proper prep, priming, and climate-grade paints for wood siding that stand up to Alberta winters. We address all rot, cracks, and surface failures before coating.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-item-title">Stucco &amp; Hardie Board</div>
+          <p class="service-item-text">Elastomeric coatings that flex through freeze-thaw cycles without cracking or peeling. Essential for Alberta's dramatic seasonal temperature swings.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-item-title">Decks &amp; Fences</div>
+          <p class="service-item-text">UV-resistant stains and sealers to protect outdoor surfaces from sun, snow, and hail. We use penetrating oils and solid stains rated for Canadian climates.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-item-title">Garage Doors &amp; Metal</div>
+          <p class="service-item-text">Rust-inhibiting primers and durable topcoats for metal surfaces, garage structures, and outbuildings. Long-lasting protection against Alberta's moisture and UV.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interior -->
+    <div class="services-category fade-in" data-delay="0.05">
+      <div class="category-header">
+        <span class="category-icon">🖌️</span>
+        <h2 class="category-title">Interior Painting</h2>
+      </div>
+      <div class="service-items">
+        <div class="service-item">
+          <div class="service-item-title">Full Home Repaints</div>
+          <p class="service-item-text">Complete interior transformations — ceilings, walls, trim, and doors — handled with minimal disruption to your daily life. Furniture protection and thorough cleanup included.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-item-title">Accent Walls &amp; Features</div>
+          <p class="service-item-text">Design-forward accent walls, colour blocking, and decorative finishes. We work with your colour vision or can recommend a palette suited to your space.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-item-title">Cabinetry Refinishing</div>
+          <p class="service-item-text">Factory-finish results on kitchen and bathroom cabinets without the cost of replacement. Sprayed with durable alkyd or conversion varnish for a hard, long-lasting surface.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-item-title">Basement Development</div>
+          <p class="service-item-text">Moisture-resistant paints and coatings designed for below-grade Alberta conditions. Proper vapour barrier compatibility and anti-mould products where needed.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Surface Prep -->
+    <div class="services-category fade-in" data-delay="0.05">
+      <div class="category-header">
+        <span class="category-icon">🔧</span>
+        <h2 class="category-title">Surface Preparation</h2>
+      </div>
+      <div class="service-items">
+        <div class="service-item">
+          <div class="service-item-title">Drywall Repair &amp; Patching</div>
+          <p class="service-item-text">Seamless repairs to holes, cracks, nail pops, and water damage. Texture matching to blend repairs invisibly with existing surfaces.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-item-title">Caulking &amp; Sealing</div>
+          <p class="service-item-text">Comprehensive caulking of gaps, windows, trim transitions, and penetrations. Improves both appearance and energy efficiency.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-item-title">Pressure Washing</div>
+          <p class="service-item-text">Professional exterior cleaning to remove dirt, algae, mildew, and failing paint. An essential first step before any exterior painting project.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-item-title">Popcorn Ceiling Removal</div>
+          <p class="service-item-text">Safe removal and smooth skim-coat finish application for dated textured ceilings. We test for asbestos on pre-1990 homes before proceeding.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Renovations -->
+    <div class="services-category fade-in" data-delay="0.05">
+      <div class="category-header">
+        <span class="category-icon">🏗️</span>
+        <h2 class="category-title">Renovations &amp; Commercial</h2>
+      </div>
+      <div class="service-items">
+        <div class="service-item">
+          <div class="service-item-title">Kitchen Refreshes</div>
+          <p class="service-item-text">Paint, trim work, and cabinet refinishing to modernize kitchens on a budget — a fraction of the cost of a full renovation.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-item-title">Bathroom Updates</div>
+          <p class="service-item-text">Moisture-resistant paints and tile-adjacent coatings for bathrooms that stay fresh and mould-free through Alberta's temperature swings.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-item-title">Commercial Spaces</div>
+          <p class="service-item-text">Efficient, low-disruption painting for retail, office, and commercial properties. Evening and weekend scheduling available to minimize business downtime.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-item-title">New Construction</div>
+          <p class="service-item-text">Partnering with builders for full interior &amp; exterior finishing on new builds. Consistent quality from drywall prime coat to final finish.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-in" style="text-align:center; padding-top:16px;">
+      <a href="calculator.html" class="btn btn-primary">Get a Free Estimate →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section-navy" style="padding:0;">
+  <div style="padding:80px 40px 32px; text-align:center;">
+    <div class="section-label" style="color:rgba(255,255,255,0.5);">How We Work</div>
+    <h2 class="section-title white">Our Process</h2>
+  </div>
+  <div class="process-grid fade-in" style="max-width:1200px; margin:0 auto; padding:0 40px 80px;">
+    <div class="process-step">
+      <div class="process-num">01</div>
+      <div class="process-title">Free Consultation</div>
+      <p class="process-text">We visit your site, assess the scope, and answer your questions. No pressure, no obligation.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">02</div>
+      <div class="process-title">Detailed Quote</div>
+      <p class="process-text">You receive a clear, itemized quote within 48 hours. No surprises, ever.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">03</div>
+      <div class="process-title">Surface Prep</div>
+      <p class="process-text">We repair, prime, and protect before a drop of paint touches your surfaces.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">04</div>
+      <div class="process-title">Expert Application</div>
+      <p class="process-text">Two-coat finish using premium products suited to Alberta's climate conditions.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">05</div>
+      <div class="process-title">Final Walkthrough</div>
+      <p class="process-text">We review every detail with you before we leave. Your satisfaction is guaranteed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">NORDIC BUILD</div>
+        <div class="footer-brand-sub">Claresholm, Alberta</div>
+        <p class="footer-desc">Professional painting and renovation services for Southern Alberta homes and businesses.</p>
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="fb-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Follow Us on Facebook
+        </a>
+      </div>
+      <div>
+        <div class="footer-heading">Pages</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="contact.html">Contact</a>
+          <a href="calculator.html">Calculator</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <div class="footer-contact-item"><span>📍</span><span>Claresholm, AB T0L 0T0</span></div>
+        <div class="footer-contact-item"><span>📞</span><span>(403) 555-0192</span></div>
+        <div class="footer-contact-item"><span>✉️</span><span>info@nordicbuild.ca</span></div>
+        <div class="footer-contact-item"><span>🕐</span><span>Mon–Fri 7am–6pm, Sat 8am–4pm</span></div>
+        <div class="footer-contact-item"><span>🛡️</span><span>WCB Covered · $5M Liability</span></div>
+      </div>
+      <div>
+        <div class="footer-heading">Service Area</div>
+        <div class="footer-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39527.56!2d-113.6344!3d50.0222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537264a1c6c7a679%3A0x54ecbabd46a7c4b7!2sClaresholm%2C+AB!5e0!3m2!1sen!2sca!4v1620000000000" width="100%" height="160" style="border:0; display:block;" allowfullscreen loading="lazy" title="Map"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Nordic Build. All rights reserved. Claresholm, Alberta, Canada.</span>
+      <span>Licensed · WCB Covered · $5M Liability Insurance</span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
